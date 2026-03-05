@@ -3,6 +3,7 @@ from datetime import datetime
 from storage import load_expenses, save_expenses
 from logic import KATEGORIJAS, sum_total, validate_amount, validate_date
 from logic import filter_by_month, sum_by_category, get_available_months
+from export import export_to_csv, export_filtered_by_month
 
 def show_menu():
     """Parāda galveno izvēlni"""
@@ -14,7 +15,7 @@ def show_menu():
     print("3) Filtrēt pēc mēneša")
     print("4) Kopsavilkums pa kategorijām")
     print("5) Dzēst izdevumu")
-    print("6) Eksportēt CSV (būs pieejams 4. solī)")
+    print("6) Eksportēt CSV")
     print("7) Iziet")
     print("-"*50)
 
@@ -205,6 +206,59 @@ def delete_expense(expenses):
     except ValueError:
         print("Ievadiet derīgu skaitli.")
 
+def export_csv_interactive(expenses):
+    """
+    Interaktīva CSV eksportēšana.
+    """
+    print("\n--- EKSPORTĒT CSV ---")
+    
+    if not expenses:
+        print("Nav ko eksportēt - izdevumu saraksts ir tukšs.")
+        return
+    
+    print("Eksportēt:")
+    print("  1) Visus izdevumus")
+    print("  2) Tikai viena mēneša izdevumus")
+    print("  0) Atcelt")
+    
+    try:
+        choice = input("\nIzvēlies (0-2): ").strip()
+        
+        if choice == "0":
+            print("Eksports atcelts.")
+            return
+        
+        elif choice == "1":
+            from export import export_to_csv
+            export_to_csv(expenses)
+        
+        elif choice == "2":
+            from logic import get_available_months
+            months = get_available_months(expenses)
+            
+            if not months:
+                print("Nav pieejamu mēnešu.")
+                return
+            
+            print("\nPieejamie mēneši:")
+            for i, m in enumerate(months, 1):
+                print(f"  {i}) {m}")
+            
+            m_choice = int(input("\nIzvēlies mēnesi: "))
+            if 1 <= m_choice <= len(months):
+                year, month = map(int, months[m_choice-1].split('-'))
+                from export import export_filtered_by_month
+                export_filtered_by_month(expenses, year, month)
+            else:
+                print("Nederīga izvēle.")
+        else:
+            print("Nederīga izvēle.")
+            
+    except ValueError:
+        print("Ievadiet derīgu skaitli.")
+    except Exception as e:
+        print(f"Kļūda: {e}")
+
 def main():
     """Galvenā programmas funkcija"""
     expenses = load_expenses()
@@ -224,10 +278,9 @@ def main():
         elif choice == "5":
             delete_expense(expenses)
         elif choice == "6":
-            print("\nFunkcija 'Eksportēt CSV' būs pieejama 4. solī.")
-            input("\nSpied Enter, lai turpinātu...")
+            export_csv_interactive(expenses)
         elif choice == "7":
-            print("\nPaldies par izmantošanu! Uz redzēšanos!")
+            print("\nPaldies! Uz redzēšanos!")
             sys.exit(0)
         else:
             print("Nepareiza izvēle. Lūdzu, izvēlieties 1-7.")
