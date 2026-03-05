@@ -1,7 +1,7 @@
-# expense_tracker/logic.py
 from datetime import datetime
+from collections import defaultdict
 
-# Kategoriju saraksts (saskaņā ar plānu)
+# Kategoriju saraksts
 KATEGORIJAS = [
     "Ēdiens",
     "Transports",
@@ -15,8 +15,10 @@ KATEGORIJAS = [
 def sum_total(expenses):
     """
     Aprēķina visu izdevumu kopsummu.
+    
     Args:
         expenses (list): Izdevumu saraksts
+    
     Returns:
         float: Kopējā summa ar 2 cipariem aiz komata
     """
@@ -25,8 +27,10 @@ def sum_total(expenses):
 def validate_amount(amount_str):
     """
     Pārbauda vai ievadītā summa ir derīga.
+    
     Args:
         amount_str (str): Lietotāja ievadītā summa
+    
     Returns:
         float or None: Summa kā float, ja derīga, citādi None
     """
@@ -61,3 +65,57 @@ def validate_date(date_str):
     except ValueError:
         print("Kļūda: nepareizs datuma formāts. Izmantojiet YYYY-MM-DD (piemēram, 2025-02-25)")
         return None
+
+def filter_by_month(expenses, year, month):
+    """
+    Atgriež izdevumus, kas atbilst norādītajam gadam un mēnesim.
+    
+    Args:
+        expenses (list): Visi izdevumi
+        year (int): Gads (piemēram, 2025)
+        month (int): Mēnesis (1-12)
+    
+    Returns:
+        list: Filtrētie izdevumi
+    """
+    filtered = []
+    for expense in expenses:
+        expense_date = datetime.strptime(expense['date'], "%Y-%m-%d")
+        if expense_date.year == year and expense_date.month == month:
+            filtered.append(expense)
+    return filtered
+
+def sum_by_category(expenses):
+    """
+    Grupē izdevumus pa kategorijām un aprēķina katras summu.
+    
+    Args:
+        expenses (list): Izdevumu saraksts
+    
+    Returns:
+        dict: Vārdnīca ar {kategorija: summa}
+    """
+    totals = defaultdict(float)
+    for expense in expenses:
+        category = expense['category']
+        totals[category] += expense['amount']
+    
+    # Noapaļo un pārvērš par parastu vārdnīcu
+    return {cat: round(amount, 2) for cat, amount in totals.items()}
+
+def get_available_months(expenses):
+    """
+    Atrod visus mēnešus, kuros ir izdevumi.
+    
+    Args:
+        expenses (list): Izdevumu saraksts
+    
+    Returns:
+        list: Unikālu mēnešu saraksts formatētā kā "YYYY-MM"
+    """
+    months = set()
+    for expense in expenses:
+        date_obj = datetime.strptime(expense['date'], "%Y-%m-%d")
+        months.add(date_obj.strftime("%Y-%m"))
+    
+    return sorted(list(months))
