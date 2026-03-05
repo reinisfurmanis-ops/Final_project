@@ -1,0 +1,12 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data files
+expenses.json
+
+# IDE settings (ja lieto)
+.vscode/
+.idea/
