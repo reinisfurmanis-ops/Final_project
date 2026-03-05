@@ -4,6 +4,9 @@ from storage import load_expenses, save_expenses
 from logic import KATEGORIJAS, sum_total, validate_amount, validate_date
 from logic import filter_by_month, sum_by_category, get_available_months
 from export import export_to_csv, export_filtered_by_month
+from logic import check_budget, set_budget, get_statistics, display_statistics
+from logic import search_expenses, export_to_txt
+monthly_budget = None
 
 def show_menu():
     """Parāda galveno izvēlni"""
@@ -17,6 +20,13 @@ def show_menu():
     print("5) Dzēst izdevumu")
     print("6) Eksportēt CSV")
     print("7) Iziet")
+    print("-"*50)
+    print("🎁 BONUSA FUNKCIJAS:")
+    print("8) Iestatīt budžetu")
+    print("9) Budžeta pārbaude")
+    print("10) Statistika")
+    print("11) Meklēt izdevumos")
+    print("12) Eksportēt uz teksta failu")
     print("-"*50)
 
 def add_expense(expenses):
@@ -261,11 +271,12 @@ def export_csv_interactive(expenses):
 
 def main():
     """Galvenā programmas funkcija"""
+    global monthly_budget
     expenses = load_expenses()
     
     while True:
         show_menu()
-        choice = input("Izvēlies darbību (1-7): ").strip()
+        choice = input("Izvēlies darbību (1-12): ").strip()
         
         if choice == "1":
             add_expense(expenses)
@@ -280,13 +291,147 @@ def main():
         elif choice == "6":
             export_csv_interactive(expenses)
         elif choice == "7":
-            print("\nPaldies! Uz redzēšanos!")
+            print("\nPaldies par izmantošanu! Uz redzēšanos!")
             sys.exit(0)
+        elif choice == "8":
+            budget_setup()
+        elif choice == "9":
+            budget_check(expenses)
+        elif choice == "10":
+            show_statistics(expenses)
+        elif choice == "11":
+            search_interactive(expenses)
+        elif choice == "12":
+            export_txt_interactive(expenses)
         else:
-            print("Nepareiza izvēle. Lūdzu, izvēlieties 1-7.")
+            print("Nepareiza izvēle. Lūdzu, izvēlieties 1-12.")
         
         if choice != "7":
             input("\nSpied Enter, lai turpinātu...")
+
+# ============= BONUSA FUNKCIJAS =============
+
+def budget_setup():
+    """Iestata mēneša budžetu"""
+    global monthly_budget
+    monthly_budget = set_budget()
+    print(f"✓ Budžets iestatīts: {monthly_budget:.2f} EUR")
+
+def budget_check(expenses):
+    """Pārbauda budžeta izlietojumu"""
+    global monthly_budget
+    
+    if monthly_budget is None:
+        print("Vispirms iestati budžetu (opcija 8).")
+        return
+    
+    print("\n--- BUDŽETA PĀRBAUDE ---")
+    
+    # Iegūst mēnesi no lietotāja
+    from logic import get_available_months
+    months = get_available_months(expenses)
+    
+    if not months:
+        print("Nav pieejamu mēnešu.")
+        return
+    
+    print("Pieejamie mēneši:")
+    for i, m in enumerate(months, 1):
+        print(f"  {i}) {m}")
+    
+    try:
+        m_choice = int(input("\nIzvēlies mēnesi: "))
+        if 1 <= m_choice <= len(months):
+            year, month = map(int, months[m_choice-1].split('-'))
+            total, remaining, percent, warning = check_budget(expenses, month, year, monthly_budget)
+            
+            print(f"\nMēnesis: {months[m_choice-1]}")
+            print(f"Izlietots: {total:.2f} EUR ({percent}%)")
+            print(f"Atlikums: {remaining:.2f} EUR")
+            print(warning)
+        else:
+            print("Nederīga izvēle.")
+    except ValueError:
+        print("Ievadiet skaitli.")
+
+def show_statistics(expenses):
+    """Parāda statistiku"""
+    print("\n--- STATISTIKA ---")
+    stats = get_statistics(expenses)
+    display_statistics(stats)
+
+def search_interactive(expenses):
+    """Interaktīva meklēšana"""
+    print("\n--- MEKLĒT IZDEVUMOS ---")
+    
+    if not expenses:
+        print("Nav datu.")
+        return
+    
+    search_term = input("Ievadi meklējamo tekstu: ").strip()
+    if not search_term:
+        print("Tukšs meklēšanas teksts.")
+        return
+    
+    results = search_expenses(expenses, search_term)
+    
+    if not results:
+        print(f"Nekas netika atrasts ar '{search_term}'.")
+        return
+    
+    print(f"\nAtrasti {len(results)} ieraksti ar '{search_term}':")
+    print("-"*70)
+    print(f"{'Nr.':<4} {'Datums':<12} {'Summa':>8} {'Kategorija':<15} {'Apraksts'}")
+    print("-"*70)
+    
+    for i, exp in enumerate(results, 1):
+        print(f"{i:<4} {exp['date']:<12} {exp['amount']:>8.2f} EUR  {exp['category']:<15} {exp['description']}")
+
+def export_txt_interactive(expenses):
+    """Teksta faila eksports"""
+    print("\n--- EKSPORTĒT UZ TEKSTA FAILU ---")
+    
+    if not expenses:
+        print("Nav ko eksportēt.")
+        return
+    
+    print("Eksportēt:")
+    print("  1) Visus izdevumus")
+    print("  2) Tikai viena mēneša izdevumus")
+    print("  0) Atcelt")
+    
+    try:
+        choice = input("\nIzvēlies (0-2): ").strip()
+        
+        if choice == "0":
+            return
+        elif choice == "1":
+            from logic import export_to_txt
+            export_to_txt(expenses)
+        elif choice == "2":
+            from logic import get_available_months
+            months = get_available_months(expenses)
+            
+            if not months:
+                print("Nav pieejamu mēnešu.")
+                return
+            
+            print("\nPieejamie mēneši:")
+            for i, m in enumerate(months, 1):
+                print(f"  {i}) {m}")
+            
+            m_choice = int(input("\nIzvēlies mēnesi: "))
+            if 1 <= m_choice <= len(months):
+                year, month = map(int, months[m_choice-1].split('-'))
+                from logic import filter_by_month
+                filtered = filter_by_month(expenses, year, month)
+                export_to_txt(filtered, f"izdevumi_{months[m_choice-1]}.txt")
+            else:
+                print("Nederīga izvēle.")
+        else:
+            print("Nederīga izvēle.")
+    except ValueError:
+        print("Ievadiet skaitli.")
 
 if __name__ == "__main__":
     main()
