@@ -1,0 +1,254 @@
+[
+  {
+    "date": "2026-01-05",
+    "amount": 45.5,
+    "category": "Ēdiens",
+    "description": "Lielveikala pirkumi"
+  },
+  {
+    "date": "2026-01-07",
+    "amount": 12.3,
+    "category": "Transports",
+    "description": "Degviela"
+  },
+  {
+    "date": "2026-01-10",
+    "amount": 85.9,
+    "category": "Veselība",
+    "description": "Elektrība"
+  },
+  {
+    "date": "2026-01-15",
+    "amount": 25.0,
+    "category": "Izklaide",
+    "description": "Kino biļetes"
+  },
+  {
+    "date": "2026-01-20",
+    "amount": 15.75,
+    "category": "Veselība",
+    "description": "Aptieka"
+  },
+  {
+    "date": "2026-01-25",
+    "amount": 65.4,
+    "category": "Iepirkšanās",
+    "description": "Apģērbs"
+  },
+  {
+    "date": "2026-01-28",
+    "amount": 8.5,
+    "category": "Cits",
+    "description": "Zieds"
+  },
+  {
+    "date": "2026-02-02",
+    "amount": 5.6,
+    "category": "Ēdiens",
+    "description": "Rīta kafija"
+  },
+  {
+    "date": "2026-02-03",
+    "amount": 3.4,
+    "category": "Transports",
+    "description": "Autobusa biļete"
+  },
+  {
+    "date": "2026-02-05",
+    "amount": 28.3,
+    "category": "Ēdiens",
+    "description": "Pusdienas"
+  },
+  {
+    "date": "2026-02-07",
+    "amount": 12.5,
+    "category": "Izklaide",
+    "description": "Kino"
+  },
+  {
+    "date": "2026-02-10",
+    "amount": 45.0,
+    "category": "Komunālie maksājumi",
+    "description": "Ūdens"
+  },
+  {
+    "date": "2026-02-12",
+    "amount": 22.8,
+    "category": "Ēdiens",
+    "description": "Restorāns"
+  },
+  {
+    "date": "2026-02-15",
+    "amount": 9.99,
+    "category": "Cits",
+    "description": "Grāmata"
+  },
+  {
+    "date": "2026-02-18",
+    "amount": 35.2,
+    "category": "Veselība",
+    "description": "Zobārsts"
+  },
+  {
+    "date": "2026-02-20",
+    "amount": 18.75,
+    "category": "Transports",
+    "description": "Taksometrs"
+  },
+  {
+    "date": "2026-02-22",
+    "amount": 42.3,
+    "category": "Iepirkšanās",
+    "description": "Kurpes"
+  },
+  {
+    "date": "2026-02-25",
+    "amount": 7.8,
+    "category": "Ēdiens",
+    "description": "Sviestmaize"
+  },
+  {
+    "date": "2026-02-27",
+    "amount": 55.0,
+    "category": "Komunālie maksājumi",
+    "description": "Internets"
+  },
+  {
+    "date": "2026-02-28",
+    "amount": 14.5,
+    "category": "Izklaide",
+    "description": "Teātris"
+  },
+  {
+    "date": "2026-03-01",
+    "amount": 125.3,
+    "category": "Ēdiens",
+    "description": "Mēneša lielveikals"
+  },
+  {
+    "date": "2026-03-03",
+    "amount": 45.0,
+    "category": "Transports",
+    "description": "Degviela"
+  },
+  {
+    "date": "2026-03-05",
+    "amount": 89.99,
+    "category": "Izklaide",
+    "description": "Koncerts"
+  },
+  {
+    "date": "2026-03-07",
+    "amount": 234.5,
+    "category": "Iepirkšanās",
+    "description": "Jauns telefons"
+  },
+  {
+    "date": "2026-03-08",
+    "amount": 12.4,
+    "category": "Ēdiens",
+    "description": "Ziedi"
+  },
+  {
+    "date": "2026-03-10",
+    "amount": 67.8,
+    "category": "Komunālie maksājumi",
+    "description": "Gāze"
+  },
+  {
+    "date": "2026-03-12",
+    "amount": 28.5,
+    "category": "Veselība",
+    "description": "Vitamīni"
+  },
+  {
+    "date": "2026-03-15",
+    "amount": 15.2,
+    "category": "Transports",
+    "description": "Auto mazgātuve"
+  },
+  {
+    "date": "2026-03-17",
+    "amount": 34.9,
+    "category": "Ēdiens",
+    "description": "Pica"
+  },
+  {
+    "date": "2026-03-19",
+    "amount": 52.3,
+    "category": "Cits",
+    "description": "Dāvana"
+  },
+  {
+    "date": "2026-03-21",
+    "amount": 18.4,
+    "category": "Izklaide",
+    "description": "Boulings"
+  },
+  {
+    "date": "2026-03-22",
+    "amount": 9.5,
+    "category": "Ēdiens",
+    "description": "Kafija un kūka"
+  },
+  {
+    "date": "2026-03-24",
+    "amount": 76.25,
+    "category": "Komunālie maksājumi",
+    "description": "Atkritumi"
+  },
+  {
+    "date": "2026-03-26",
+    "amount": 42.0,
+    "category": "Transports",
+    "description": "Auto riepa"
+  },
+  {
+    "date": "2026-03-28",
+    "amount": 31.5,
+    "category": "Veselība",
+    "description": "Aptieka"
+  },
+  {
+    "date": "2026-03-30",
+    "amount": 5.99,
+    "category": "Cits",
+    "description": "Laikraksts"
+  },
+  {
+    "date": "2026-03-31",
+    "amount": 47.8,
+    "category": "Ēdiens",
+    "description": "Restorāns"
+  },
+  {
+    "date": "2026-03-05",
+    "amount": 25.4,
+    "category": "Izklaide",
+    "description": "Slepošana"
+  },
+  {
+    "date": "2026-07-05",
+    "amount": 18.95,
+    "category": "Komunālie maksājumi",
+    "description": "Ūdens"
+  },
+  {
+    "date": "2026-03-06",
+    "amount": 10.0,
+    "category": "Komunālie maksājumi",
+    "description": "Udens"
+  },
+  {
+    "date": "2026-04-20",
+    "amount": 20.0,
+    "category": "Veselība",
+    "description": "medikamenti"
+  },
+  {
+    "date": "2026-02-10",
+    "amount": 20.0,
+    "category": "Izklaide",
+    "description": "ediens"
+  }
+]
