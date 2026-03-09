@@ -147,7 +147,7 @@ main (galvenais branch)
 
 
 ## Projekta struktūra
-05-Final-project/ satur expense_tracker/ mapi ar programmas kodu (app.py, gui_app.py, storage.py, logic.py, export.py), docs/ mapi ar dokumentāciju (plan.md un DEVLOG.md), dist/ mapi ar izveidoto .exe programmu (IzdevumuIzsekotajs.exe), expenses.json datu failu, icon.ico ikonu, README.md un .gitignore.
+05-Final-project/ satur expense_tracker/ mapi ar programmas kodu (app.py, gui_app.py, storage.py, logic.py, export.py), docs/ mapi ar dokumentāciju (plan.md un DEVLOG.md), expenses.json datu failu, icon.ico ikonu, README.md un .gitignore.
 
 ## Tehniskās detaļas
 Vēlos norādīt ka izstrādāta mini aplikācija, ko var atvērt python expense_tracker/gui_app.py ir tīri vairākas reizes ģenerēts kods. Vēlējos saprast vai un cik vienkārši ir šādu termināl izdevumu izsekotāju pārvērst reālā programā. Bet arī iemācijos dažas lietas, piemērām kā formatēt galveni app.py 109-111 rindas.
