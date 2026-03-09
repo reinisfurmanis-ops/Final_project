@@ -32,7 +32,6 @@ def show_menu():
 def add_expense(expenses):
     """
     Pievieno jaunu izdevumu.
-    
     Args:
         expenses (list): Esošo izdevumu saraksts
     """
@@ -95,7 +94,6 @@ def add_expense(expenses):
 def show_expenses(expenses):
     """
     Parāda visus izdevumus tabulas formātā.
-    
     Args:
         expenses (list): Izdevumu saraksts
     """
