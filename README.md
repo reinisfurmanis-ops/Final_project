@@ -1,9 +1,9 @@
 # 💰 Izdevumu izsekotājs
 
-Komandrindas un grafiskā lietojumprogramma personīgo finanšu uzskaitei un analīzei. Izstrādāts Python valodā, pieejams gan kā avota kods, gan kā gatava .exe programma.
+Komandrindas un grafiskā lietojumprogramma personīgo finanšu uzskaitei un analīzei.
 
 ## Par projektu
-Šis ir mācību projekts, kas izstrādāts programmēšanas pamatu kursa ietvaros. Tā mērķis ir izveidot pilnvērtīgu, praktiski lietojamu programmu, kas apvieno visas kursā apgūtās prasmes. Projekta ietvaros tika realizēti visi 4 pamata soļi (plānošana, datu slānis, filtrēšana, eksports), 4 bonusa uzdevumi (budžets, statistika, meklēšana, teksta eksports), grafiskā interfeisa (GUI) versija un gatava .exe programma bez Python instalācijas.
+Šis ir mācību projekts, kas izstrādāts programmēšanas pamatu kursa ietvaros. Tā mērķis ir izveidot pilnvērtīgu, praktiski lietojamu programmu, kas apvieno visas kursā apgūtās prasmes. Projekta ietvaros tika realizēti visi 4 pamata soļi (plānošana, datu slānis, filtrēšana, eksports), 4 bonusa uzdevumi (budžets, statistika, meklēšana, teksta eksports), grafiskā interfeisa (GUI).
 
 ## Funkcionalitāte
 Pamata funkcijas: 
@@ -32,8 +32,6 @@ budžeta indikators - progresa josla ar brīdinājuma krāsām; statusa josla ar
 
 ## Uzstādīšana
 1. variants: Python avota kods - git clone https://github.com/reinisfurmanis-ops/Final_project.git, cd Final_project, python expense_tracker/app.py (komandrindas versija) vai python expense_tracker/gui_app.py (grafiskā versija). Prasības: Python 3.10 vai jaunāks, GUI versijai papildus -  pip install matplotlib.
-
-2. variants: Gatavā programma (.exe) - lejupielādē jaunāko versiju no Releases sadaļas, izvēlies failu IzdevumuIzsekotajs.exe, saglabā vēlamajā mapē (piemēram, darbvirsmā), palaid ar dubultklikšķi. Dati tiek saglabāti tajā pašā mapē, kur atrodas .exe fails. Ieteicams izveidot atsevišķu mapi programmai.
 
 ## Lietošana
    IZDEVUMU IZSEKOTĀJS
