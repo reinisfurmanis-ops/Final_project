@@ -150,7 +150,7 @@ main (galvenais branch)
 05-Final-project/ satur expense_tracker/ mapi ar programmas kodu (app.py, gui_app.py, storage.py, logic.py, export.py), docs/ mapi ar dokumentāciju (plan.md un DEVLOG.md), dist/ mapi ar izveidoto .exe programmu (IzdevumuIzsekotajs.exe), expenses.json datu failu, icon.ico ikonu, README.md un .gitignore.
 
 ## Tehniskās detaļas
-Izmantotās tehnoloģijas: Python 3.10+ programmas pamatvaloda, Tkinter grafiskā interfeisa izveidei, Matplotlib grafiku un diagrammu zīmēšanai, JSON datu saglabāšanai, CSV datu eksportam, PyInstaller .exe faila izveidei.
+Vēlos norādīt ka izstrādāta mini aplikācija, ko var atvērt python expense_tracker/gui_app.py ir tīri vairākas reizes ģenerēts kods. Vēlējos saprast vai un cik vienkārši ir šādu termināl izdevumu izsekotāju pārvērst reālā programā. Bet arī iemācijos dažas lietas, piemērām kā formatēt galveni app.py 109-111 rindas.
 
 Git branch struktūra: main (galvenais branch) ar atzariem feature/planning (1. solis: plānošana), feature/core (2. solis: datu slānis), feature/filters (3. solis: filtrēšana), feature/export-docs (4. solis: eksports), feature/bonus (bonusa funkcijas) un feature/gui (grafiskā versija). Kopējais commit skaits: 14+.
 

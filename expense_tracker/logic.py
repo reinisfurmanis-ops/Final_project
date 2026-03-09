@@ -15,10 +15,8 @@ KATEGORIJAS = [
 def sum_total(expenses):
     """
     Aprēķina visu izdevumu kopsummu.
-    
     Args:
         expenses (list): Izdevumu saraksts
-    
     Returns:
         float: Kopējā summa ar 2 cipariem aiz komata
     """
@@ -27,10 +25,8 @@ def sum_total(expenses):
 def validate_amount(amount_str):
     """
     Pārbauda vai ievadītā summa ir derīga.
-    
     Args:
         amount_str (str): Lietotāja ievadītā summa
-    
     Returns:
         float or None: Summa kā float, ja derīga, citādi None
     """
@@ -47,10 +43,8 @@ def validate_amount(amount_str):
 def validate_date(date_str):
     """
     Pārbauda vai datums ir derīgā YYYY-MM-DD formātā.
-    
     Args:
         date_str (str): Lietotāja ievadītais datums
-    
     Returns:
         str or None: Datums kā string, ja derīgs, citādi None
     """
@@ -69,12 +63,10 @@ def validate_date(date_str):
 def filter_by_month(expenses, year, month):
     """
     Atgriež izdevumus, kas atbilst norādītajam gadam un mēnesim.
-    
     Args:
         expenses (list): Visi izdevumi
         year (int): Gads (piemēram, 2025)
         month (int): Mēnesis (1-12)
-    
     Returns:
         list: Filtrētie izdevumi
     """
@@ -88,10 +80,8 @@ def filter_by_month(expenses, year, month):
 def sum_by_category(expenses):
     """
     Grupē izdevumus pa kategorijām un aprēķina katras summu.
-    
     Args:
         expenses (list): Izdevumu saraksts
-    
     Returns:
         dict: Vārdnīca ar {kategorija: summa}
     """
@@ -106,10 +96,8 @@ def sum_by_category(expenses):
 def get_available_months(expenses):
     """
     Atrod visus mēnešus, kuros ir izdevumi.
-    
     Args:
         expenses (list): Izdevumu saraksts
-    
     Returns:
         list: Unikālu mēnešu saraksts formatētā kā "YYYY-MM"
     """
