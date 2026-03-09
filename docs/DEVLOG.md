@@ -29,7 +29,7 @@ Sākumā bija grūti izlemt, kādas tieši funkcijas būs nepieciešamas `logic.
 
 ---
 
-## 2. solis: Datu slānis un pamata darbības (2026-03-06)
+## 2. solis: Datu slānis un pamata darbības
 
 ### 🎯 Izpildītais darbs
 - ✅ Implementēts `storage.py` ar `load_expenses()` un `save_expenses()` funkcijām
@@ -55,7 +55,7 @@ Visgrūtāk bija ar datuma validāciju - sākumā nemaz nezināju par `datetime.
 
 ---
 
-## 3. solis: Filtrēšana, kopsavilkums un dzēšana (2026-03-07)
+## 3. solis: Filtrēšana, kopsavilkums un dzēšana
 
 ### 🎯 Izpildītais darbs
 - ✅ Pievienota `filter_by_month()` funkcija mēneša filtrēšanai
